@@ -22,8 +22,8 @@ object elLoboFeroz {
 		return peso
 	}
 	
-	method soplarUnaCasa(casa){
-		peso = 0.max( peso - casa.resistencia() ) 
+	method soplarUnaCasa(casa, cantDeChanchitos){
+		peso = 0.max( peso - casa.resistencia()- (cantDeChanchitos * chanchito.peso()) ) 
 	}
 }
 
@@ -66,4 +66,37 @@ object cazador {
 		return peso
 	}
 }
+object casaPaja {
+	var resistencia = 0
+	method resistencia(){
+		return resistencia
+	}
+}
+object casaMadera {
+	var resistencia = 5
+	method resistencia(){
+		return resistencia
+	}
+}
+
+object casaLadrillo {
+	var resistencia = 2 * cantidadDeLadrillos
+	var cantidadDeLadrillos = 0
+	
+	method resistencia(){
+		return resistencia 
+	}
+	method cantDeLadrillos(cant){
+		cantidadDeLadrillos = cantidadDeLadrillos +cant
+	}
+}
+
+object chanchito{
+	var peso = 15
+	method peso(){
+		return peso
+	}
+
+}
+
 
